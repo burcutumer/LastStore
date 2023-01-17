@@ -1,14 +1,4 @@
-﻿{
-  "$schema": "https://json.schemastore.org/launchsettings.json",
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:40408",
-      "sslPort": 44381
-    }
-  },
-  "profiles": {
+﻿{  "profiles": {
     "API": {
       "commandName": "Project",
       "dotnetRunMessages": true,

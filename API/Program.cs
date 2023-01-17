@@ -12,13 +12,13 @@ var builder = WebApplication.CreateBuilder(args);   // IOC container / DI contai
 
 builder.Services.AddControllers();  // bazi servislerin(Controller,DbContext) register etmek icin kendine ozel metotlari var
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<StoreContext>(opt =>
 {
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddCors();
 
 var app = builder.Build();
 
@@ -47,6 +47,12 @@ if (app.Environment.IsDevelopment())
 //app.UseHttpsRedirection();
 
 app.UseRouting();
+
+app.UseCors(opt =>
+{
+    opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+});
+
 app.UseAuthorization();
 
 app.MapControllers();
