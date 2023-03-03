@@ -11,6 +11,8 @@ export const history = createBrowserHistory();
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+//store.dispatch(fetchProductsAsync());
+
 root.render(
 
   <HistoryRouter history={history}>
